@@ -1,0 +1,94 @@
+@import "../../assets/styles/images.scss";
+@import "../../assets/fonts/fonts.scss";
+@import "../../assets/styles/colors.scss";
+
+.container {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: auto;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loginForm { 
+    width: 40%;
+    height: 100%;
+    margin-left: 15vw;
+    margin-top: 5vh;
+    margin-right: 10vw;
+    position: relative;
+}
+
+img {
+    width: 15vw;
+}
+
+.background {
+    width: 60%;
+    height: 100%;
+}
+
+.background-light {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    margin-top: 15vh;
+    font-weight: 700;
+    width: 60%;
+    font-size: 36px;
+    color: $gray-500;
+}
+
+.button {
+    width: 365px;
+    height: 54px;
+    background-color: $primary;
+    border-radius: 8px;
+    border: none;
+}
+
+.inputForm {
+    margin-top: 3vh;
+}
+
+.inputForm:first-child {
+    margin-top: 7vh;
+}
+
+input {
+    width: 365px;
+    height: 54px;
+    padding-left: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: 1px solid $gray-200;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+input::placeholder{
+    color: $gray-200;
+}
+
+.changeTheme {
+    background-color: $gray-100;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    position: absolute;
+    bottom: 8vh;
+    width: 20vh;
+    border: 1px solid $gray-400;
+    box-sizing: border-box;
+    border-radius: 22px;
+    display: flex;
+    justify-content: space-around;
+}
+
+fa-icon{
+    transform: rotate(225deg);
+}
