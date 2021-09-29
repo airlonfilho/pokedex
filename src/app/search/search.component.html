@@ -1,0 +1,24 @@
+<div class="header">
+  <div class="logo">
+    <img class="logoHeader" src="../../assets/images/logo2.svg" alt="Logo">
+  </div>
+  <div class="menu">
+    <a (click)="favorites()">Favoritos</a>
+    <a class="active" (click)="search()">Procurar</a>
+    <a (click)="home()">Ver Todos</a>
+  </div>
+  <button class="exit" (click)="exit()">
+    <p>Sair</p>
+    <fa-icon [icon]="faSignOutAlt"></fa-icon>
+  </button>
+</div>
+
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="inputForm">
+      <input id="search" type="text" formControlName="search" placeholder="Procure por pokémons">
+      <fa-icon [icon]="faSearch" class="iconSearch"></fa-icon>
+    </div>
+
+  </form>
+</div>

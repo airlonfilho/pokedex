@@ -1,0 +1,63 @@
+<div class="header">
+  <div class="logo">
+    <img class="logoHeader" src="../../assets/images/logo2.svg" alt="Logo">
+  </div>
+  <div class="menu">
+    <a (click)="favorites()">Favoritos</a>
+    <a (click)="search()">Procurar</a>
+    <a class="active" (click)="home()">Ver Todos</a>
+  </div>
+  <button class="exit" (click)="exit()">
+    <p>Sair</p>
+    <fa-icon [icon]="faSignOutAlt"></fa-icon>
+  </button>
+</div>
+
+<div class="contain">
+
+  <div class="filterGroup">
+    <div class="filterItem">
+      <button class="buttonActived">
+        <p>Todos</p>
+      </button>
+      <button class="buttonActive">
+        <p>Fire</p>
+      </button>
+      <button class="buttonActive">
+        <p>Eletric</p>
+      </button>
+      <button class="buttonActive">
+        <p>Water</p>
+      </button>
+    </div>
+  </div>
+
+  <div class="cardGroup">
+    <div class="card" *ngFor="let pokemon of pokemons">
+      <div class="iconFavorite">
+        <fa-icon [icon]="faHeart"></fa-icon>
+      </div>
+
+      <div class="pika">
+        <img src="../../assets/images/pikachu.svg" alt="Pika">
+      </div>
+
+      <div class="details">
+        <p class="titlePokemon">{{pokemon.name}}</p>
+        <p class="idPokemon">ID: {{pokemon.id}}</p>
+
+        <div class="types">
+          <div *ngFor="let type of pokemon.types">
+            <span [class]="type.name">{{type.name}}</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="verDetalhes">
+        <button class="buttonVer">
+          <p class="textButton">Ver Detalhes</p>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

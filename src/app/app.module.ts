@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,11 +8,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
+import { HomeComponent } from './home/home.component';
+import { SearchComponent } from './search/search.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    SearchComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,7 +26,8 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

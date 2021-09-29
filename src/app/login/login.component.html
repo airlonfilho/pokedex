@@ -6,9 +6,9 @@
 
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="inputForm">
-                    <input id="email" 
-                    type="email" 
-                    formControlName="email" 
+                    <input id="email"
+                    type="email"
+                    formControlName="email"
                     placeholder="Email">
                   </div>
                   <ng-container *ngIf="loginForm.controls.email.touched">
@@ -19,11 +19,11 @@
                         E-mail inválido
                     </span>
                 </ng-container>
-                
+
                   <div class="inputForm">
-                    <input id="password" 
-                    type="password" 
-                    formControlName="password" 
+                    <input id="password"
+                    type="password"
+                    formControlName="password"
                     placeholder="Senha">
                   </div>
                   <ng-container *ngIf="loginForm.controls.password.touched">
@@ -35,13 +35,13 @@
                 <div class="inputForm">
                     <button class="button" type="submit" [disabled]="!loginForm.valid">Entrar</button>
                 </div>
-              
+
               </form>
 
-              <button class="changeTheme">
+              <!-- <button class="changeTheme">
                 <fa-icon [icon]="faMoon"></fa-icon>
                 <p>Tema escuro</p>
-            </button>
+            </button> -->
 
     </div>
     <div class="background">
