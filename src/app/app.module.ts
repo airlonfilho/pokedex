@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FavoritesComponent } from './favorites/favorites.component';
     ReactiveFormsModule,
     FontAwesomeModule,
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

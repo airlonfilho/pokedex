@@ -33,13 +33,13 @@
   </div>
 
   <div class="cardGroup">
-    <div class="card" *ngFor="let pokemon of pokemons">
+    <div class="card">
       <div class="iconFavorite">
         <fa-icon [icon]="faHeart"></fa-icon>
       </div>
 
-      <div class="pika">
-        <img src="../../assets/images/pikachu.svg" alt="Pika">
+      <div class="pokeImg">
+        <img [src]="pokemon.sprites.other.dream_world.front_default" class="imagemPoke" [alt]="pokemon.name">
       </div>
 
       <div class="details">
@@ -48,7 +48,7 @@
 
         <div class="types">
           <div *ngFor="let type of pokemon.types">
-            <span [class]="type.name">{{type.name}}</span>
+            <span [class]="type.type.name">{{type.type.name}}</span>
           </div>
         </div>
 

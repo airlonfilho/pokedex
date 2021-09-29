@@ -103,8 +103,8 @@ p {
 }
 
 .card {
-  width: 9vw;
-  height: 29vh;
+  width: 10vw;
+  min-height: 30vh;
   box-shadow: 0px 15px 18px -10px $gray-200;
   border-radius: 10px;
   background-color: $white;
@@ -124,9 +124,13 @@ p {
   color: $gray-200;
 }
 
-.pika {
+.pokeImg {
   display: flex;
   justify-content: center;
+}
+
+.imagemPoke {
+  width: 50%;
 }
 
 .details {
@@ -170,6 +174,32 @@ p {
   margin-right: 5px;
 }
 
+.grass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $success;
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.poison {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rebeccapurple;
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
 .fire {
   display: flex;
   align-items: center;
@@ -194,7 +224,7 @@ p {
 }
 
 .buttonVer {
-  width: 7.5vw;
+  width: 7.8vw;
   height: 4vh;
   background-color: $primary;
   border-radius: 4px;

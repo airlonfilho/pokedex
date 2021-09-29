@@ -1,3 +1,5 @@
+import { Pokemon } from './../models/pokemon.model';
+import { PokeapiService } from './../services/pokeapi.service';
 import { Rotas } from './../utils/rotas.enum';
 import { faSignOutAlt, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
@@ -12,84 +14,18 @@ export class HomeComponent implements OnInit {
 
   faSignOutAlt = faSignOutAlt;
   faHeart = faHeart;
+  pokemon: Pokemon;
 
-  pokemons: any[] = [
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-    {
-      name: "pikachu", id: "101", types: [
-        { name: "eletric" }, { name: "fire" }
-      ]
-    },
-  ];
   constructor(
-    private router: Router
+    private router: Router,
+    private Pokeservice: PokeapiService
   ) { }
 
   ngOnInit(): void {
+    this.Pokeservice.detailPokemon().subscribe((res:Pokemon) => {
+      this.pokemon = res
+      console.log(this.pokemon)
+    })
   }
 
   home() {
