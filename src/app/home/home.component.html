@@ -1,63 +1,97 @@
-<div class="header">
-  <div class="logo">
-    <img class="logoHeader" src="../../assets/images/logo2.svg" alt="Logo">
-  </div>
-  <div class="menu">
-    <a (click)="favorites()">Favoritos</a>
-    <a (click)="search()">Procurar</a>
-    <a class="active" (click)="home()">Ver Todos</a>
-  </div>
-  <button class="exit" (click)="exit()">
-    <p>Sair</p>
-    <fa-icon [icon]="faSignOutAlt"></fa-icon>
-  </button>
+<div class="loading" *ngIf="isLoading">
+  <div class="loader"></div>
 </div>
 
-<div class="contain">
-
-  <div class="filterGroup">
-    <div class="filterItem">
-      <button class="buttonActived">
-        <p>Todos</p>
-      </button>
-      <button class="buttonActive">
-        <p>Fire</p>
-      </button>
-      <button class="buttonActive">
-        <p>Eletric</p>
-      </button>
-      <button class="buttonActive">
-        <p>Water</p>
-      </button>
+<div *ngIf="!isLoading">
+  <div class="header">
+    <div class="logo">
+      <img class="logoHeader" src="../../assets/images/logo2.svg" alt="Logo">
     </div>
+    <div class="menu">
+      <a (click)="favorites()">Favoritos <span class="item"
+          *ngIf="this.appState.favoritesPokemons.length > 0">{{this.appState.favoritesPokemons.length}}</span></a>
+      <a (click)="search()">Procurar</a>
+      <a class="active" (click)="home()">Ver Todos</a>
+    </div>
+    <button class="exit" (click)="exit()">
+      <p>Sair</p>
+      <fa-icon [icon]="faSignOutAlt"></fa-icon>
+    </button>
   </div>
 
-  <div class="cardGroup">
-    <div class="card">
-      <div class="iconFavorite">
-        <fa-icon [icon]="faHeart"></fa-icon>
-      </div>
+  <div class="contain">
 
-      <div class="pokeImg">
-        <img [src]="pokemon.sprites.other.dream_world.front_default" class="imagemPoke" [alt]="pokemon.name">
-      </div>
-
-      <div class="details">
-        <p class="titlePokemon">{{pokemon.name}}</p>
-        <p class="idPokemon">ID: {{pokemon.id}}</p>
-
-        <div class="types">
-          <div *ngFor="let type of pokemon.types">
-            <span [class]="type.type.name">{{type.type.name}}</span>
-          </div>
-        </div>
-
-      </div>
-      <div class="verDetalhes">
-        <button class="buttonVer">
-          <p class="textButton">Ver Detalhes</p>
+    <div class="filterGroup">
+      <div class="filterItem">
+        <button [class]="todos ? 'actived' : 'notActived'" (click)="verTodos()">
+          <p>Todos</p>
+        </button>
+        <button [class]="fireButton ? 'actived' : 'notActived'" (click)="filterType(fire)">
+          <p>Fire</p>
+        </button>
+        <button [class]="electricButton ? 'actived' : 'notActived'" (click)="filterType(electric)">
+          <p>Electric</p>
+        </button>
+        <button [class]="waterButton ? 'actived' : 'notActived'" (click)="filterType(water)">
+          <p>Water</p>
         </button>
       </div>
     </div>
+
+    <div class="cardGroup">
+      <div class="card" *ngFor="let pokemon of pokemons">
+        <div [class]="pokemon.isFav ? 'iconFavorited' : 'iconFavorite'">
+          <fa-icon [icon]="faHeart" (click)="fav(pokemon)"></fa-icon>
+        </div>
+
+        <div class="pokeImg">
+          <img [src]="pokemon.sprites.other.dream_world.front_default" class="imagemPoke" [alt]="pokemon.name">
+        </div>
+
+        <div class="details">
+          <p class="titlePokemon">{{pokemon.name | titlecase}}</p>
+          <p class="idPokemon">ID: {{pokemon.id}}</p>
+
+          <div class="types">
+            <div *ngFor="let type of pokemon.types">
+              <span [class]="type.type.name">{{type.type.name}}</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="verDetalhes">
+          <button class="buttonVer" (click)="openModal('modal', pokemon)">
+            <p class="textButton">Ver Detalhes</p>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
+
+</div>
+
+<div *ngIf="validar">
+  <modal id="modal">
+    <div class="modal-header">
+      <p class="titleModal">Detalhes</p>
+      <fa-icon class="iconClose" [icon]="faTimes" (click)="closeModal('modal');"></fa-icon>
+    </div>
+    <hr class="solid">
+    <div class="poke">
+      <p class="titlePoke">{{detailModal.name | titlecase}}</p>
+      <div class="separate">
+        <div class="detailModalImg">
+          <img [src]="detailModal.sprites.other.dream_world.front_default" class="imagemDetailPoke" [alt]="detailModal.name">
+        </div>
+        <div class="detailModalImg">
+          <img [src]="detailModal.sprites.other.dream_world.front_default" class="imagemDetailPoke" [alt]="detailModal.name">
+        </div>
+      </div>
+
+      <div class="medidas">
+        <p class="detailHeight">{{(detailModal.height * 0.30) | number }}M</p>
+        <p class="detailWeight">{{(detailModal.weight * 2.2) | number }}KG</p>
+      </div>
+    </div>
+  </modal>
 </div>

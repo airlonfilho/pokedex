@@ -12,8 +12,20 @@ export class PokeapiService {
 
   constructor(public httpClient: HttpClient) { }
 
-  public detailPokemon(): Observable<Pokemon> {
-    return this.httpClient.get<Pokemon>(`${this.base_url}/pokemon/6`, {
+  public detailPokemon(id: any): Observable<Pokemon> {
+    return this.httpClient.get<Pokemon>(`${this.base_url}/pokemon/${id}`, {
+      headers: this.headers
+    });
+  }
+
+  public typePokemon(type: any): Observable<Pokemon> {
+    return this.httpClient.get<Pokemon>(`${this.base_url}/type/${type}`, {
+      headers: this.headers
+    });
+  }
+
+  public searchPokemon(name: string): Observable<Pokemon> {
+    return this.httpClient.get<Pokemon>(`${this.base_url}/pokemon/${name}`, {
       headers: this.headers
     });
   }

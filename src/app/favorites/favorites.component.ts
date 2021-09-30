@@ -1,3 +1,5 @@
+import { Pokemon } from './../models/pokemon.model';
+import { AppState } from './../app.state';
 import { Rotas } from './../utils/rotas.enum';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,13 +14,15 @@ export class FavoritesComponent implements OnInit {
 
   faSignOutAlt = faSignOutAlt;
   faHeart = faHeart;
-  isEmpty: boolean = true;
-  qtdFavorites: number = 0
+
   constructor(
-    private router: Router
+    private router: Router,
+    public appState: AppState
   ) { }
 
   ngOnInit(): void {
+    console.log(this.appState.favoritesPokemons)
+    this.appState.favoritesPokemons.length > 0 ? this.appState.isEmpty = false : this.appState.isEmpty = true
   }
 
   home(){
@@ -35,6 +39,20 @@ export class FavoritesComponent implements OnInit {
 
   exit(){
     this.router.navigate([Rotas.LOGIN])
+  }
+
+  fav(pokemon: Pokemon) {
+    if (!pokemon.isFav) {
+      pokemon.isFav = true;
+      this.appState.favoritesPokemons.push(pokemon);
+    }
+    else {
+      pokemon.isFav = false;
+      this.appState.favoritesPokemons.pop();
+      if(this.appState.favoritesPokemons.length < 1){
+        this.appState.isEmpty = true;
+      }
+    }
   }
 
 }

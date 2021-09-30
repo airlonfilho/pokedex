@@ -72,24 +72,21 @@ p {
   justify-content: center;
 }
 
-.filterGroup {
+.actived {
   margin-left: 0.5vw;
-}
-
-.buttonActived {
   width: 7.5vw;
   height: 4vh;
-  background-color: $primary;
   border-radius: 4px;
+  background-color: $primary;
   border: none;
 }
 
-.buttonActive {
+.notActived {
   margin-left: 0.5vw;
   width: 7.5vw;
   height: 4vh;
-  background-color: $gray-100;
   border-radius: 4px;
+  background-color: $gray-100;
   border: 1px solid $gray-300;
 }
 
@@ -98,8 +95,8 @@ p {
   justify-content: space-between;
   align-items: center;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2.7vw;
 }
 
 .card {
@@ -116,6 +113,17 @@ p {
   transform: scale(1.03);
 }
 
+.item {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: $gray-500;
+  color: $white;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
 .iconFavorite {
   display: flex;
   justify-content: right;
@@ -124,9 +132,18 @@ p {
   color: $gray-200;
 }
 
+.iconFavorited {
+  display: flex;
+  justify-content: right;
+  margin-right: 0.5vw;
+  margin-top: 1vh;
+  color: $danger;
+}
+
 .pokeImg {
   display: flex;
   justify-content: center;
+  max-height: 80px;
 }
 
 .imagemPoke {
@@ -161,58 +178,6 @@ p {
   font-weight: 400;
 }
 
-.eletric {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $primary;
-  padding: 2px 8px 2px 8px;
-  border-radius: 10px;
-  font-size: 8px;
-  font-weight: 600;
-  color: $gray-400;
-  margin-right: 5px;
-}
-
-.grass {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $success;
-  padding: 2px 8px 2px 8px;
-  border-radius: 10px;
-  font-size: 8px;
-  font-weight: 600;
-  color: $white;
-  margin-right: 5px;
-}
-
-.poison {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rebeccapurple;
-  padding: 2px 8px 2px 8px;
-  border-radius: 10px;
-  font-size: 8px;
-  font-weight: 600;
-  color: $white;
-  margin-right: 5px;
-}
-
-.fire {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $danger;
-  padding: 2px 8px 2px 8px;
-  border-radius: 10px;
-  font-size: 8px;
-  font-weight: 600;
-  color: $white;
-  margin-right: 5px;
-}
-
 .verDetalhes {
   display: flex;
   justify-content: center;
@@ -234,4 +199,105 @@ p {
 .textButton {
   font-size: 10px;
   font-weight: 600;
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid $primary;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.modal-header {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.titleModal {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.solid {
+  margin-top: 18px;
+  border-top: 0.6px solid $gray-200;
+}
+
+.iconClose {
+  color: $gray-300;
+}
+
+.poke {
+  margin-top: 18px;
+}
+
+.titlePoke {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.detailModalImg {
+  max-height: 100px;
+  max-width: 100px;
+  background-color: $gray-200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.imagemDetailPoke {
+  width: 60%;
+}
+
+.separate {
+  display: flex;
+  margin-top: 13px;
+}
+
+.medidas {
+  display: flex;
+  margin-top: 24px;
+}
+
+.detailHeight {
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 18px;
+}
+
+.detailWeight {
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 5px;
 }

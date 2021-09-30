@@ -115,17 +115,23 @@ p {
   font-weight: 600;
 }
 
+
 .cardGroup {
   margin-top: 2vh;
+  justify-content: space-between;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2.7vw;
 }
 
 .card {
-  width: 9vw;
-  height: 27vh;
+  width: 10vw;
+  min-height: 30vh;
   box-shadow: 0px 15px 18px -10px $gray-200;
   border-radius: 10px;
   background-color: $white;
-  margin: 5px;
+  margin: 10px;
   transition: all .2s ease-in-out;
 }
 
@@ -138,12 +144,26 @@ p {
   justify-content: right;
   margin-right: 0.5vw;
   margin-top: 1vh;
+  color: $gray-200;
+}
+
+.iconFavorited {
+  display: flex;
+  justify-content: right;
+  margin-right: 0.5vw;
+  margin-top: 1vh;
   color: $danger;
 }
 
-.pika {
+
+.pokeImg {
   display: flex;
   justify-content: center;
+  max-height: 80px;
+}
+
+.imagemPoke {
+  width: 50%;
 }
 
 .details {
@@ -158,6 +178,7 @@ p {
 .types {
   margin-top: 1vh;
   display: flex;
+  align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -173,32 +194,6 @@ p {
   font-weight: 400;
 }
 
-.eletric {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $primary;
-  padding: 2px 8px 2px 8px;
-  border-radius: 10px;
-  font-size: 8px;
-  font-weight: 600;
-  color: $gray-400;
-  margin-right: 5px;
-}
-
-.fire {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $danger;
-  padding: 2px 8px 2px 8px;
-  border-radius: 10px;
-  font-size: 8px;
-  font-weight: 600;
-  color: $white;
-  margin-right: 5px;
-}
-
 .verDetalhes {
   display: flex;
   justify-content: center;
@@ -210,7 +205,7 @@ p {
 }
 
 .buttonVer {
-  width: 7.5vw;
+  width: 7.8vw;
   height: 4vh;
   background-color: $primary;
   border-radius: 4px;

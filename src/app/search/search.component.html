@@ -3,7 +3,8 @@
     <img class="logoHeader" src="../../assets/images/logo2.svg" alt="Logo">
   </div>
   <div class="menu">
-    <a (click)="favorites()">Favoritos</a>
+    <a (click)="favorites()">Favoritos <span class="item"
+      *ngIf="this.appState.favoritesPokemons.length > 0">{{this.appState.favoritesPokemons.length}}</span></a>
     <a class="active" (click)="search()">Procurar</a>
     <a (click)="home()">Ver Todos</a>
   </div>
@@ -14,11 +15,42 @@
 </div>
 
 <div class="container">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <div class="inputForm">
       <input id="search" type="text" formControlName="search" placeholder="Procure por pokémons">
       <fa-icon [icon]="faSearch" class="iconSearch"></fa-icon>
     </div>
 
   </form>
+
+  <div class="contain">
+    <div class="card" *ngIf="pokemon">
+      <div [class]="pokemon.isFav ? 'iconFavorited' : 'iconFavorite'">
+        <fa-icon [icon]="faHeart" (click)="fav(pokemon)"></fa-icon>
+      </div>
+
+      <div class="pokeImg">
+        <img [src]="pokemon.sprites.other.dream_world.front_default" class="imagemPoke" [alt]="pokemon.name">
+      </div>
+
+      <div class="details">
+        <p class="titlePokemon">{{pokemon.name}}</p>
+        <p class="idPokemon">ID: {{pokemon.id}}</p>
+
+        <div class="types">
+          <div *ngFor="let type of pokemon.types">
+            <span [class]="type.type.name">{{type.type.name}}</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="verDetalhes">
+        <button class="buttonVer">
+          <p class="textButton">Ver Detalhes</p>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
 </div>

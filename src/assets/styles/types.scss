@@ -1,0 +1,239 @@
+.water {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $secondary;
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.fire {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $danger;
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.grass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $success;
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.ground {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(88, 54, 54);
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.rock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(124, 96, 80);
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.steel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(88, 51, 30);
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.ice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $secondary;
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+
+.electric {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary;
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.dragon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.dragon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $gray-200;
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.psychic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rebeccapurple;
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.normal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(238, 192, 42);
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.fighting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(223, 25, 11);
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.poison {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rebeccapurple;
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.bug {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 226, 49);
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.flying {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(66, 145, 248);
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.dark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(181, 0, 226);
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+.fairy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(221, 230, 148);
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  color: $white;
+  margin-right: 5px;
+}
+
+
+
+
+

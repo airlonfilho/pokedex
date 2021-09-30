@@ -7,6 +7,7 @@ export class Pokemon {
   sprites: sprites;
   id: number;
   name: string;
+  isFav: boolean = false;
 }
 
 interface types {

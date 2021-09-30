@@ -1,3 +1,4 @@
+import { ModalComponent } from './modal/modal.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     SearchComponent,
     FavoritesComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     CommonModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

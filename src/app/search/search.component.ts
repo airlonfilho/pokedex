@@ -1,8 +1,11 @@
+import { AppState } from './../app.state';
+import { Pokemon } from './../models/pokemon.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Rotas } from './../utils/rotas.enum';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faSignOutAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faSearch, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { PokeapiService } from '../services/pokeapi.service';
 
 @Component({
   selector: 'app-search',
@@ -13,14 +16,20 @@ export class SearchComponent implements OnInit {
 
   faSignOutAlt = faSignOutAlt;
   faSearch = faSearch;
-  loginForm: FormGroup;
+  faHeart = faHeart;
+
+  searchForm: FormGroup;
+  searchValue: string;
+  pokemon: Pokemon;
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private pokeservice: PokeapiService,
+    public appState: AppState
     ) {
 
-    this.loginForm = this.formBuilder.group({
+    this.searchForm = this.formBuilder.group({
       search: [""],
     });
   }
@@ -29,14 +38,12 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (!this.loginForm.valid) {
-      console.log("Formulário inválido");
-      return;
-    }
-    console.log("Formulário válido", this.loginForm.value);
-    this.router.navigate([Rotas.HOME])
-    this.loginForm.reset();
+    this.searchValue = this.searchForm.value.search
 
+    this.pokeservice.detailPokemon(this.searchValue).subscribe((res: Pokemon) => {
+      this.pokemon = res
+    })
+    this.searchForm.reset();
   }
 
   home(){
@@ -53,6 +60,17 @@ export class SearchComponent implements OnInit {
 
   exit(){
     this.router.navigate([Rotas.LOGIN])
+  }
+
+  fav(pokemon: Pokemon) {
+    if (!pokemon.isFav) {
+      pokemon.isFav = true;
+      this.appState.favoritesPokemons.push(pokemon);
+    }
+    else {
+      pokemon.isFav = false;
+      this.appState.favoritesPokemons.pop();
+    }
   }
 
 

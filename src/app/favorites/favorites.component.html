@@ -4,7 +4,7 @@
   </div>
   <div class="menu">
     <a class="active" (click)="favorites()">Favoritos <span class="item"
-        *ngIf="qtdFavorites > 0">{{qtdFavorites}}</span></a>
+        *ngIf="this.appState.favoritesPokemons.length > 0">{{this.appState.favoritesPokemons.length}}</span></a>
     <a (click)="search()">Procurar</a>
     <a (click)="home()">Ver Todos</a>
   </div>
@@ -14,34 +14,36 @@
   </button>
 </div>
 
-<div class="container" *ngIf="isEmpty">
+<div class="container" *ngIf="appState.isEmpty">
   <img src="../../assets/images/astronauta.svg" alt="Astronauta">
   <p class="title">Está meio vazio aqui</p>
   <p class="subtitle">Procure por pokémons para adicioná-los aos seus favoritos.</p>
-  <button class="button">
+  <button class="button" (click)="search()">
     <p>Procurar Pókemons</p>
   </button>
 </div>
 
-<div class="contain" *ngIf="!isEmpty">
-  <p class="titleContain">Olá, você tem {{qtdFavorites}} pokémon salvo!</p>
+<div class="contain" *ngIf="!appState.isEmpty">
+  <p class="titleContain">Olá, você tem {{this.appState.favoritesPokemons.length}} pokémon salvo!</p>
   <div class="cardGroup">
-    <div class="card">
-      <div class="iconFavorite">
-        <fa-icon [icon]="faHeart"></fa-icon>
+    <div class="card" *ngFor="let pokemon of this.appState.favoritesPokemons">
+      <div [class]="pokemon.isFav ? 'iconFavorited' : 'iconFavorite'">
+        <fa-icon [icon]="faHeart" (click)="fav(pokemon)"></fa-icon>
       </div>
 
-      <div class="pika">
-        <img src="../../assets/images/pikachu.svg" alt="Pika">
+      <div class="pokeImg">
+        <img [src]="pokemon.sprites.other.dream_world.front_default" class="imagemPoke" [alt]="pokemon.name">
       </div>
 
       <div class="details">
-        <p class="titlePokemon">Pikachu</p>
-        <p class="idPokemon">ID: 101</p>
-       <div class="types">
-        <span class="eletric">Eletric</span>
-        <span class="fire">Fire</span>
-       </div>
+        <p class="titlePokemon">{{pokemon.name}}</p>
+        <p class="idPokemon">ID: {{pokemon.id}}</p>
+
+        <div class="types">
+          <div *ngFor="let type of pokemon.types">
+            <span [class]="type.type.name">{{type.type.name}}</span>
+          </div>
+        </div>
 
       </div>
       <div class="verDetalhes">
