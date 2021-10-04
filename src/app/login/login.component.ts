@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../services/local-storage.service';
 import { Rotas } from './../utils/rotas.enum';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -16,8 +17,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
-    ) {
+    private router: Router,
+    private localStorageService: LocalStorageService
+  ) {
 
     this.loginForm = this.formBuilder.group({
       password: ["", Validators.required],
@@ -26,6 +28,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.localStorageService.get("email") === 'airlonfilho@gmail.com') {
+      this.router.navigate([Rotas.HOME])
+    }
   }
 
   onSubmit(): void {
@@ -34,6 +39,8 @@ export class LoginComponent implements OnInit {
       return;
     }
     console.log("Formulário válido", this.loginForm.value);
+    this.localStorageService.set("email", this.loginForm.value.email);
+    this.localStorageService.set("password", this.loginForm.value.password);
     this.router.navigate([Rotas.HOME])
     this.loginForm.reset();
 

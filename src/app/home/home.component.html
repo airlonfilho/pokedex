@@ -81,16 +81,80 @@
       <p class="titlePoke">{{detailModal.name | titlecase}}</p>
       <div class="separate">
         <div class="detailModalImg">
-          <img [src]="detailModal.sprites.other.dream_world.front_default" class="imagemDetailPoke" [alt]="detailModal.name">
+          <img [src]="detailModal.sprites.front_default" class="imagemDetailPoke" [alt]="detailModal.name">
         </div>
         <div class="detailModalImg">
-          <img [src]="detailModal.sprites.other.dream_world.front_default" class="imagemDetailPoke" [alt]="detailModal.name">
+          <img [src]="detailModal.sprites.back_default" class="imagemDetailPoke" [alt]="detailModal.name">
         </div>
       </div>
 
-      <div class="medidas">
+      <div class="measures">
         <p class="detailHeight">{{(detailModal.height * 0.30) | number }}M</p>
         <p class="detailWeight">{{(detailModal.weight * 2.2) | number }}KG</p>
+      </div>
+
+      <div class="typesModal">
+        <div *ngFor="let type of detailModal.types">
+          <span [class]="type.type.name">{{type.type.name}}</span>
+        </div>
+      </div>
+
+
+      <div class="abilities">
+        <p class="titleAbilities">Statistics</p>
+
+        <div class="abilitie">
+          <p class="titleAbilitie">HP</p>
+          <div class="bar">
+            <progress id="progressBar" max="100" [value]="detailModal.stats[0].base_stat"></progress>
+          </div>
+          <p>{{detailModal.stats[0].base_stat}}</p>
+        </div>
+
+        <div class="abilitie">
+          <p class="titleAbilitie">ATK</p>
+          <div class="bar">
+            <progress id="progressBar" max="100" [value]="detailModal.stats[1].base_stat"></progress>
+          </div>
+          <p class="valueAbilitie">{{detailModal.stats[1].base_stat}}</p>
+        </div>
+
+        <div class="abilitie">
+          <p class="titleAbilitie">DEF</p>
+          <div class="bar">
+            <progress id="progressBar" max="100" [value]="detailModal.stats[2].base_stat"></progress>
+          </div>
+          <p class="valueAbilitie">{{detailModal.stats[2].base_stat}}</p>
+        </div>
+        <div class="abilitie">
+          <p class="titleAbilitie">S.ATK</p>
+          <div class="bar">
+            <progress id="progressBar" max="100" [value]="detailModal.stats[3].base_stat"></progress>
+          </div>
+          <p class="valueAbilitie">{{detailModal.stats[3].base_stat}}</p>
+        </div>
+        <div class="abilitie">
+          <p class="titleAbilitie">S.DEF</p>
+          <div class="bar">
+            <progress id="progressBar" max="100" [value]="detailModal.stats[4].base_stat"></progress>
+          </div>
+          <p class="valueAbilitie">{{detailModal.stats[4].base_stat}}</p>
+        </div>
+        <div class="abilitie">
+          <p class="titleAbilitie">SPD</p>
+          <div class="bar">
+            <progress id="progressBar" max="100" [value]="detailModal.stats[5].base_stat"></progress>
+          </div>
+          <p class="valueAbilitie">{{detailModal.stats[5].base_stat}}</p>
+        </div>
+      </div>
+
+      <div class="favButton">
+
+        <button class="button">
+          <fa-icon [icon]="faHeart" class="faHeart"></fa-icon>
+          Adicionar aos Favoritos
+        </button>
       </div>
     </div>
   </modal>

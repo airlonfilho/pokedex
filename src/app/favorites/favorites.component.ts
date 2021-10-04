@@ -21,23 +21,22 @@ export class FavoritesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.appState.favoritesPokemons)
     this.appState.favoritesPokemons.length > 0 ? this.appState.isEmpty = false : this.appState.isEmpty = true
   }
 
-  home(){
+  home() {
     this.router.navigate([Rotas.HOME])
   }
 
-  search(){
+  search() {
     this.router.navigate([Rotas.SEARCH])
   }
 
-  favorites(){
+  favorites() {
     this.router.navigate([Rotas.FAVORITES])
   }
 
-  exit(){
+  exit() {
     this.router.navigate([Rotas.LOGIN])
   }
 
@@ -48,8 +47,12 @@ export class FavoritesComponent implements OnInit {
     }
     else {
       pokemon.isFav = false;
-      this.appState.favoritesPokemons.pop();
-      if(this.appState.favoritesPokemons.length < 1){
+      const index = this.appState.favoritesPokemons.indexOf(pokemon);
+      console.log(index)
+      if (index > -1) {
+        this.appState.favoritesPokemons.splice(index, 1);
+      }
+      if (this.appState.favoritesPokemons.length < 1) {
         this.appState.isEmpty = true;
       }
     }

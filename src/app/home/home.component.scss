@@ -265,19 +265,19 @@ p {
 }
 
 .detailModalImg {
-  max-height: 100px;
-  max-width: 100px;
-  background-color: $gray-200;
+  max-height: 80px;
+  max-width: 80px;
+  background-color: $gray-100;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+
   margin-right: 10px;
   border-radius: 5px;
 }
 
 .imagemDetailPoke {
-  width: 60%;
+
 }
 
 .separate {
@@ -285,7 +285,7 @@ p {
   margin-top: 13px;
 }
 
-.medidas {
+.measures {
   display: flex;
   margin-top: 24px;
 }
@@ -300,4 +300,76 @@ p {
   font-size: 18px;
   font-weight: 500;
   margin-right: 5px;
+}
+
+.typesModal {
+  margin-top: 3vh;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.abilitie {
+  margin-top: 1vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.abilities {
+  margin-top: 4vh;
+}
+
+.titleAbilities {
+  font-size: 13px;
+  font-weight: 600;
+  color: $gray-200;
+}
+
+.bar {
+  width: 17vw;
+}
+
+progress {
+  width: 100%;
+  -webkit-appearance: none;
+  border-radius: 8px;
+}
+
+::-webkit-progress-bar {
+  background-color: $gray-100;
+}
+
+::-webkit-progress-value {
+  background-color: $primary;
+}
+
+.titleAbilitie{
+  padding-right: 20px;
+  justify-content: end;
+}
+
+.valueAbilitie {
+  padding-left: 20px;
+}
+
+.favButton {
+  margin-top: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  width: 22vw;
+  height: 5vh;
+  background-color: $primary;
+  border-radius: 8px;
+  border: none;
+}
+
+.faHeart {
+  color: $gray-400;
+  margin-right: 0.2vw;
 }

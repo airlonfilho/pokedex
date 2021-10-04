@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
     private router: Router,
     private pokeservice: PokeapiService,
     public appState: AppState
-    ) {
+  ) {
 
     this.searchForm = this.formBuilder.group({
       search: [""],
@@ -46,19 +46,19 @@ export class SearchComponent implements OnInit {
     this.searchForm.reset();
   }
 
-  home(){
+  home() {
     this.router.navigate([Rotas.HOME])
   }
 
-  search(){
+  search() {
     this.router.navigate([Rotas.SEARCH])
   }
 
-  favorites(){
+  favorites() {
     this.router.navigate([Rotas.FAVORITES])
   }
 
-  exit(){
+  exit() {
     this.router.navigate([Rotas.LOGIN])
   }
 
@@ -69,7 +69,14 @@ export class SearchComponent implements OnInit {
     }
     else {
       pokemon.isFav = false;
-      this.appState.favoritesPokemons.pop();
+      const index = this.appState.favoritesPokemons.indexOf(pokemon);
+      console.log(index)
+      if (index > -1) {
+        this.appState.favoritesPokemons.splice(index, 1);
+      }
+      if (this.appState.favoritesPokemons.length < 1) {
+        this.appState.isEmpty = true;
+      }
     }
   }
 

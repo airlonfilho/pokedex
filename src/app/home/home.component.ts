@@ -127,7 +127,14 @@ export class HomeComponent implements OnInit {
     }
     else {
       pokemon.isFav = false;
-      this.appState.favoritesPokemons.pop();
+      const index = this.appState.favoritesPokemons.indexOf(pokemon);
+      console.log(index)
+      if (index > -1) {
+        this.appState.favoritesPokemons.splice(index, 1);
+      }
+      if (this.appState.favoritesPokemons.length < 1) {
+        this.appState.isEmpty = true;
+      }
     }
   }
 
@@ -136,10 +143,10 @@ export class HomeComponent implements OnInit {
     this.detailModal = pokemon
     console.log(this.detailModal)
     this.modalService.open(id);
-}
+  }
 
-closeModal(id: string) {
+  closeModal(id: string) {
     this.modalService.close(id);
-}
+  }
 
 }
