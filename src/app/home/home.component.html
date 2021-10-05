@@ -151,9 +151,12 @@
 
       <div class="favButton">
 
-        <button class="button">
+        <button class="button" (click)="fav(detailModal)" *ngIf="!detailModal.isFav">
           <fa-icon [icon]="faHeart" class="faHeart"></fa-icon>
           Adicionar aos Favoritos
+        </button>
+        <button class="buttonRemover" (click)="fav(detailModal)" *ngIf="detailModal.isFav">
+          Remover dos Favoritos
         </button>
       </div>
     </div>

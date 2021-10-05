@@ -369,6 +369,15 @@ progress {
   border: none;
 }
 
+.buttonRemover {
+  width: 22vw;
+  height: 5vh;
+  background-color: $danger;
+  color: $white;
+  border-radius: 8px;
+  border: none;
+}
+
 .faHeart {
   color: $gray-400;
   margin-right: 0.2vw;
